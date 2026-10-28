@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Lab Feedback System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">LF</div>
+      <div>
+        <h1>Lab Feedback Manager</h1>
+        <p>Student Feedback Management System</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <h2>Student Lab Feedback</h2>
+      <p>Collect, manage, and review feedback after every lab session.</p>
+    </section>
+
+    <section class="stats">
+      <div class="stat-card">
+        <span class="stat-label">Total Feedback Records</span>
+        <strong id="totalCount">0</strong>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <h2 id="formTitle">Add New Feedback</h2>
+          <p>Enter the student's details below.</p>
+        </div>
+      </div>
+
+      <form id="feedbackForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="studentName">Student Name *</label>
+            <input
+              type="text"
+              id="studentName"
+              placeholder="Enter student name"
+              maxlength="100"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="rollNumber">Roll Number *</label>
+            <input
+              type="text"
+              id="rollNumber"
+              placeholder="Enter roll number"
+              maxlength="30"
+              required
+            >
+          </div>
+
+          <div class="form-group full-width">
+            <label for="labName">Lab Name *</label>
+            <input
+              type="text"
+              id="labName"
+              placeholder="e.g. MPMC Lab"
+              maxlength="100"
+              required
+            >
+          </div>
+
+          <div class="form-group full-width">
+            <label for="feedbackText">Feedback *</label>
+            <textarea
+              id="feedbackText"
+              placeholder="Write your feedback about the lab session..."
+              rows="4"
+              maxlength="2000"
+              required
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="submitButton" class="btn btn-primary">
+            Add Feedback
+          </button>
+          <button type="button" id="cancelButton" class="btn btn-secondary" hidden>
+            Cancel Edit
+          </button>
+        </div>
+      </form>
+
+      <p id="statusMessage" class="status-message" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading records-heading">
+        <div>
+          <h2>Feedback Records</h2>
+          <p>View and manage submitted feedback.</p>
+        </div>
+        <input
+          type="search"
+          id="searchInput"
+          class="search-input"
+          placeholder="Search name or roll number..."
+          aria-label="Search feedback records"
+        >
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Student</th>
+              <th>Roll Number</th>
+              <th>Lab Name</th>
+              <th>Feedback</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="feedbackTableBody"></tbody>
+        </table>
+        <div id="emptyMessage" class="empty-message">
+          No feedback records yet. Add your first record above.
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Student Lab Feedback Management System · Mini Project
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
